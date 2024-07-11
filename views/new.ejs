@@ -1,0 +1,22 @@
+<%= layout("/layouts/boilerplate") %>
+<body>
+  <div class="first">
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <form class="needs-validation" method="POST" action="/Task" novalidate>
+            <label for="title" class="form-label">Title</label>
+            <input id="title" type="text" placeholder="Enter title" name="title" class="form-control" required>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a title.</div>
+            <br><br>
+            <label for="description" class="form-label" >Description</label>
+            <textarea id="description" name="description" class="description form-control" required></textarea>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a description.</div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Create Task</button>
+        </form>        
+      </div>
+    </div>
+  </div>
+</body>

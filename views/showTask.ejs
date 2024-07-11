@@ -1,0 +1,35 @@
+<%= layout("/layouts/boilerplate") %>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light "> <!-- Bootstrap Navbar -->
+            <div class="container">
+                <form class="d-flex" action="/Task/new" method="get"> 
+                    <button class=" btn btn-primary btn-lg" type="submit">Add New Task </button>
+                </form>
+            </div>
+        </nav>
+  <div class="main">
+    <h1>Task List</h1>
+    <div class="second">
+    <% for(let task of tasks){ %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= task.title%></h5>
+        <p class="card-text"><%= task.description%></p>
+        <p class="card-text">
+          Date: <%= task.created_at.toLocaleDateString() %>
+        </p>
+        <p class="card-text">
+          Time: <%= task.created_at.toLocaleTimeString() %>
+        </p>
+        <div class=" btns gap-2">
+            <a href="/Task/<%= task._id %>/edit" class="btn btn-primary">Edit</a>
+            <form action="/Task/<%= task._id %>?_method=DELETE" method="post">
+            <button class="btn btn-primary">Delete</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+</body>
